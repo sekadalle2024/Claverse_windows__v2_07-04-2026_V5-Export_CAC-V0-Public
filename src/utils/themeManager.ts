@@ -24,6 +24,7 @@ export const getCurrentTheme = (): ThemeType => {
  */
 export const getDarkMode = (): boolean => {
   const savedDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY);
+  // Only return true if explicitly set to 'true', otherwise default to false (light mode)
   return savedDarkMode === 'true';
 };
 
@@ -114,7 +115,13 @@ export const toggleDarkMode = () => {
  */
 export const initializeTheme = () => {
   const theme = getCurrentTheme();
-  const darkMode = getDarkMode();
+  const savedDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY);
+  
+  // If no dark mode preference is saved, default to light mode (false)
+  const darkMode = savedDarkMode === 'true';
+  
+  console.log('🎨 ThemeManager: Initializing theme:', theme, 'Dark mode:', darkMode);
+  
   applyTheme(theme, darkMode);
 };
 

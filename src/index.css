@@ -105,12 +105,13 @@
   }
   
   .dark.theme-gray {
-    --bg-primary: #1f2937;
-    --bg-secondary: #111827;
-    --bg-chat: #1f2937;
+    /* Mode sombre du thème gris - Utiliser des gris moyens au lieu de noir */
+    --bg-primary: #6b7280;
+    --bg-secondary: #9ca3af;
+    --bg-chat: #6b7280;
     --text-primary: #f9fafb;
-    --text-secondary: #9ca3af;
-    --border-color: #374151;
+    --text-secondary: #e5e7eb;
+    --border-color: #9ca3af;
   }
   
   /* Thème blanc pur et lumineux */
@@ -255,7 +256,7 @@
   .dark.theme-gray div[class*="message"]:not([class*="user"]),
   .dark.theme-gray div[class*="clara"],
   .dark.theme-gray aside[class*="clara"] {
-    background-color: #111827 !important;
+    background-color: #6b7280 !important;
   }
   
   /* TABLEAUX EN GRIS UNIFORME - Surcharge des en-têtes bordeaux */

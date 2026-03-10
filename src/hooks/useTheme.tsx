@@ -10,7 +10,8 @@ export const useTheme = () => {
   const [theme, setThemeState] = useState<ThemeMode>(() => {
     const saved = localStorage.getItem('theme');
     if (saved === 'light' || saved === 'dark' || saved === 'system') return saved;
-    return 'system';
+    // Default to 'light' instead of 'system' to avoid dark mode
+    return 'light';
   });
 
   const setTheme = useCallback((mode: ThemeMode) => {

@@ -8,10 +8,30 @@ import './index.css';
 import './styles/animations.css'; // Import animations
 import './services/menuIntegration'; // Import menu integration service
 import './services/autoRestore'; // Import auto-restore service
-import { initializeTheme } from './utils/themeManager';
+import { initializeTheme, applyTheme } from './utils/themeManager';
 
-// Initialize theme (default to gray theme)
-initializeTheme();
+// FORCE remove dark class immediately
+document.documentElement.classList.remove('dark');
+
+// Check if this is the first load (no theme saved)
+const isFirstLoad = !localStorage.getItem('e-audit-theme');
+
+if (isFirstLoad) {
+  console.log('🎨 Main: First load detected, applying gray theme in light mode');
+  // Force gray theme in light mode for first load
+  applyTheme('gray', false);
+} else {
+  // Initialize theme from saved preferences
+  initializeTheme();
+}
+
+// FORCE remove dark class again after a short delay
+setTimeout(() => {
+  console.log('🎨 Main: Force removing dark class');
+  document.documentElement.classList.remove('dark');
+  // Re-apply gray theme in light mode
+  applyTheme('gray', false);
+}, 100);
 
 // Setup global error handlers for unhandled promise rejections and JS errors
 setupGlobalErrorHandlers();
