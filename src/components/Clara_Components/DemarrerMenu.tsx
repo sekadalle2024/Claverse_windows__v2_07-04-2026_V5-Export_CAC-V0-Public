@@ -2163,6 +2163,36 @@ Contenu de [Contexte de base]
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
 [Nb de lignes] = 50`
+              },
+              {
+                id: 'database',
+                label: 'Database',
+                command: `[Command] = Etape de mission
+[Cycle] = Tresorerie
+[Processus] = rapprochements bancaires
+[Etape précédente] = Prise de connaissance
+[Etape de mission] = Cartographie des processus
+[Modele] = Cycle, processus, sous processus, operations
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Database
+[User_id] = ohada
+[Database] = workspace_02
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'document',
+                label: 'Document',
+                command: `[Command] = Etape de mission
+[Cycle] = Tresorerie
+[Processus] = rapprochements bancaires
+[Etape précédente] = Prise de connaissance
+[Etape de mission] = Cartographie des processus
+[Modele] = Cycle, processus, sous processus, operations
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Document
+[Nb de lignes] = 50`
               }
             ]
           },
@@ -2191,6 +2221,34 @@ Contenu de [Contexte de base]
 [Modele] = Processus, sous processus, Questionnaire Identification des risques, Dispositif de maitrise des risques attendus
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'database',
+                label: 'Database',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des processus
+[Etape de mission] = Question Identification des risques
+[Modele] = Processus, sous processus, Questionnaire Identification des risques, Dispositif de maitrise des risques attendus
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Database
+[User_id] = ohada
+[Database] = workspace_02
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'document',
+                label: 'Document',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des processus
+[Etape de mission] = Question Identification des risques
+[Modele] = Processus, sous processus, Questionnaire Identification des risques, Dispositif de maitrise des risques attendus
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Document
 [Nb de lignes] = 50`
               }
             ]
@@ -2221,6 +2279,34 @@ Contenu de [Contexte de base]
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
 [Nb de lignes] = 50`
+              },
+              {
+                id: 'database',
+                label: 'Database',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Question Identification des risques
+[Etape de mission] = Identification des risques
+[Modele] = sous processus, Point de controle, risque
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Database
+[User_id] = ohada
+[Database] = workspace_02
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'document',
+                label: 'Document',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Question Identification des risques
+[Etape de mission] = Identification des risques
+[Modele] = sous processus, Point de controle, risque
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Document
+[Nb de lignes] = 50`
               }
             ]
           },
@@ -2250,6 +2336,34 @@ Contenu de [Contexte de base]
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
 [Nb de lignes] = 50`
+              },
+              {
+                id: 'database',
+                label: 'Database',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Identification des risques
+[Etape de mission] = Evaluation des risques
+[Modele] = Point de controle, risque, évaluation risque, probabilité, impact
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Database
+[User_id] = ohada
+[Database] = workspace_02
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'document',
+                label: 'Document',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Identification des risques
+[Etape de mission] = Evaluation des risques
+[Modele] = Point de controle, risque, évaluation risque, probabilité, impact
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Document
+[Nb de lignes] = 50`
               }
             ]
           },
@@ -2278,6 +2392,34 @@ Contenu de [Contexte de base]
 [Modele] = Point de controle, risque, évaluation risque, probabilité, impact, Plan d'action de couverture des risques
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'database',
+                label: 'Database',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Evaluation des risques
+[Etape de mission] = Plan d'action de couverture des risques
+[Modele] = Point de controle, risque, évaluation risque, probabilité, impact, Plan d'action de couverture des risques
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Database
+[User_id] = ohada
+[Database] = workspace_02
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'document',
+                label: 'Document',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Evaluation des risques
+[Etape de mission] = Plan d'action de couverture des risques
+[Modele] = Point de controle, risque, évaluation risque, probabilité, impact, Plan d'action de couverture des risques
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Document
 [Nb de lignes] = 50`
               }
             ]
@@ -2309,6 +2451,36 @@ Contenu de [Contexte de base]
 [Extension] = objectif de controle, document
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'database',
+                label: 'Database',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des risques N-1
+[Etape de mission] = Cartographie des risques
+[Modele] = Point de controle, risque, évaluation risque, probabilité, impact, controle audit
+[Extension] = objectif de controle, document
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Database
+[User_id] = ohada
+[Database] = workspace_02
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'document',
+                label: 'Document',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des risques N-1
+[Etape de mission] = Cartographie des risques
+[Modele] = Point de controle, risque, évaluation risque, probabilité, impact, controle audit
+[Extension] = objectif de controle, document
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Router] = Document
 [Nb de lignes] = 50`
               }
             ]
@@ -3301,6 +3473,8 @@ const getModeIcon = (modeId: string) => {
     case 'normal': return <User className="w-4 h-4" />;
     case 'demo': return <Play className="w-4 h-4" />;
     case 'avance': return <Zap className="w-4 h-4" />;
+    case 'database': return <Zap className="w-4 h-4" />;
+    case 'document': return <Zap className="w-4 h-4" />;
     case 'manuel': return <Settings className="w-4 h-4" />;
     default: return null;
   }
