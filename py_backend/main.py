@@ -126,6 +126,14 @@ try:
 except ImportError as e:
     logger.warning(f"⚠️ États Financiers not available: {e}")
 
+# Import and include the Export Liasse router
+try:
+    from export_liasse import router as export_liasse_router
+    app.include_router(export_liasse_router)
+    logger.info("✅ Export Liasse router loaded successfully")
+except ImportError as e:
+    logger.warning(f"⚠️ Export Liasse not available: {e}")
+
 # Import and include the Échantillonnage Audit router
 try:
     from echantillonnage import router as echantillonnage_router
