@@ -76,7 +76,7 @@ export class ClaraApiService {
       caseName = "Case 13";
     }
     
-    // Cases 28-33: Méthodologies et Guides
+    // Cases 28-34: Méthodologies et Guides
     else if (msg.includes("Methodo audit") || msg.includes("Methodologie audit")) {
       routeKey = "methodo_audit";
       caseName = "Case 28";
@@ -95,6 +95,11 @@ export class ClaraApiService {
     } else if (msg.includes("Guide produit")) {
       routeKey = "guide_produit";
       caseName = "Case 32";
+    }
+    // Case 34: Heatmap risque
+    else if (msg.includes("Heatmap") || msg.includes("heatmap")) {
+      routeKey = "heatmap_risque";
+      caseName = "Case 34";
     }
     
     // Cases 25-27: Recommandations et Rapports
@@ -258,6 +263,8 @@ export class ClaraApiService {
         return "https://t22wtwxl.rpcld.app/webhook/guide_produit";
       case "methodo_revision":
         return "https://t22wtwxl.rpcld.app/webhook/methodo_revision";
+      case "heatmap_risque":
+        return "https://t22wtwxl.rpcld.app/webhook/heatmap_risque";
       case "default":
       default:
         return this.n8nDefaultEndpoint;
@@ -1148,6 +1155,70 @@ export class ClaraApiService {
           endpoint: "guide_des_commandes",
         },
       };
+    }
+
+    // ========================================================================
+    // FORMAT 8: HEATMAP RISQUE — Array with "data" containing "Etape mission - Cartographie"
+    // ========================================================================
+    if (
+      Array.isArray(result) &&
+      result.length > 0 &&
+      result[0] &&
+      typeof result[0] === "object" &&
+      "data" in result[0]
+    ) {
+      const dataContent = result[0].data;
+      
+      // Vérifier si c'est une structure de cartographie des risques
+      const cartographieKey = Object.keys(dataContent).find(
+        (key) =>
+          key.toLowerCase().includes("etape") &&
+          key.toLowerCase().includes("cartographie")
+      );
+      
+      if (cartographieKey && Array.isArray(dataContent[cartographieKey])) {
+        const tables = dataContent[cartographieKey];
+        
+        // Vérifier qu'il y a au moins 2 tables (entête + risques)
+        if (tables.length >= 2) {
+          // Vérifier la structure: table 1 (objet) + table 2 (array)
+          const table1 = tables[0];
+          const table2 = tables[1];
+          
+          const table1Key = Object.keys(table1)[0];
+          const table2Key = Object.keys(table2)[0];
+          
+          const isTable1Object = typeof table1[table1Key] === 'object' && !Array.isArray(table1[table1Key]);
+          const isTable2Array = Array.isArray(table2[table2Key]);
+          
+          if (isTable1Object && isTable2Array) {
+            console.log('✅ FORMAT 8 DETECTE: Heatmap Risque avec structure Etape mission - Cartographie');
+            
+            const risques = table2[table2Key];
+            console.log("📊 Structure détectée:", {
+              cartographieKey: cartographieKey,
+              totalTables: tables.length,
+              totalRisques: risques.length,
+              table1Key: table1Key,
+              table2Key: table2Key,
+            });
+            
+            const content = `__HEATMAP_RISQUE_ACCORDION__${JSON.stringify(result)}`;
+            
+            console.log('🔍 === FIN ANALYSE (FORMAT 8 - Heatmap Risque Accordion) ===');
+            return {
+              content,
+              metadata: {
+                format: "heatmap_risque_accordion",
+                timestamp: new Date().toISOString(),
+                totalRisques: risques.length,
+                cartographieKey: cartographieKey,
+                endpoint: "heatmap_risque",
+              },
+            };
+          }
+        }
+      }
     }
 
     // ========================================================================

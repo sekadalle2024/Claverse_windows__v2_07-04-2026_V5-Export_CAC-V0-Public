@@ -23,6 +23,7 @@ import CiaQcmAccordionRenderer from './CiaQcmAccordionRenderer';
 import CiaMethodoAccordionRenderer from './CiaMethodoAccordionRenderer';
 import GuideCommandesAccordionRenderer from './GuideCommandesAccordionRenderer';
 import MethodoRevisionAccordionRenderer from './MethodoRevisionAccordionRenderer';
+import HeatmapRisqueAccordionRenderer from './HeatmapRisqueAccordionRenderer';
 
 // Import Chart.js components
 import {
@@ -1264,6 +1265,24 @@ const MessageContentRenderer: React.FC<MessageContentRendererProps> = React.memo
       );
     } catch (e) {
       console.error('Failed to parse CIA QCM Accordion data:', e);
+      // Fall back to standard rendering if parsing fails
+    }
+  }
+
+  // ========================================================================
+  // SPECIAL FORMAT HANDLING: Heatmap Risque Accordion
+  // ========================================================================
+  if (processedContent.content.startsWith('__HEATMAP_RISQUE_ACCORDION__')) {
+    try {
+      const jsonStr = processedContent.content.replace('__HEATMAP_RISQUE_ACCORDION__', '');
+      const heatmapData = JSON.parse(jsonStr);
+      return (
+        <div className={`heatmap-risque-accordion-container ${className}`}>
+          <HeatmapRisqueAccordionRenderer data={heatmapData} />
+        </div>
+      );
+    } catch (e) {
+      console.error('Failed to parse Heatmap Risque Accordion data:', e);
       // Fall back to standard rendering if parsing fails
     }
   }

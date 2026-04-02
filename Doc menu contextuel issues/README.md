@@ -70,3 +70,51 @@ Lors de l'ajout de nouvelles fonctionnalités:
 - Fichiers d'extension: `public/menu_*_extension.js`
 - Scripts: `Doc menu contextuel issues/Scripts/`
 - Tests: `test-*.html`
+
+
+### 2 Avril 2026 (Après-midi) - Conversion Intégrale des Matrices ✨
+- **Problème**: Conversion Alpha ↔ Num incomplète
+- **Impact**: Critique - Fonctionnalité principale
+- **Durée**: ~2 heures
+- **Solution**: 6 nouvelles méthodes de conversion intégrale
+- **Documentation**:
+  - [PROBLEME_CONVERSION_MATRICES_INCOMPLETE.md](PROBLEME_CONVERSION_MATRICES_INCOMPLETE.md)
+  - [SOLUTION_CONVERSION_MATRICES_INTEGRALE.md](SOLUTION_CONVERSION_MATRICES_INTEGRALE.md)
+  - [ARCHITECTURE_CONVERSION_MATRICES.md](ARCHITECTURE_CONVERSION_MATRICES.md)
+  - [Scripts/fix-matrix-conversions.ps1](Scripts/fix-matrix-conversions.ps1)
+
+## 🚀 Démarrage Rapide
+
+### Nouveau Problème Documenté
+**Lecture rapide:** [00_LIRE_CONVERSION_MATRICES.txt](00_LIRE_CONVERSION_MATRICES.txt)
+
+### Pour Comprendre un Problème
+1. Lire le fichier `PROBLEME_[NOM].md`
+2. Consulter la solution dans `SOLUTION_[NOM].md`
+3. Voir l'architecture dans `ARCHITECTURE_[NOM].md` (si disponible)
+
+### Pour Appliquer une Solution
+1. Lire la documentation complète
+2. Utiliser le script PowerShell associé (dossier `Scripts/`)
+3. Tester la modification
+4. Valider avec getDiagnostics
+
+## 📊 Statistiques
+
+- **Problèmes documentés:** 2
+- **Solutions appliquées:** 2
+- **Scripts créés:** 2
+- **Fichiers de documentation:** 12
+- **Dernière mise à jour:** 02 Avril 2026
+
+## 🔗 Navigation Rapide
+
+- **Index complet:** [00_INDEX.md](00_INDEX.md)
+- **Architecture globale:** [ARCHITECTURE.md](ARCHITECTURE.md)
+- **Bonnes pratiques:** [BONNES_PRATIQUES.md](BONNES_PRATIQUES.md)
+- **Scripts:** [Scripts/](Scripts/)
+
+---
+
+**Dernière mise à jour:** 02 Avril 2026  
+**Mainteneur:** Équipe ClaraVerse
