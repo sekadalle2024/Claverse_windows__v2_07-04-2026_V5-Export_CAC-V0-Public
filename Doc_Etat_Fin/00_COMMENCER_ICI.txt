@@ -35,9 +35,10 @@ Doc_Etat_Fin/
     📄 00_INDEX_COMPLET_V2.md
     📄 00_ARCHITECTURE_ETATS_FINANCIERS.md
 
-2️⃣  TESTER LES ÉTATS DE CONTRÔLE N ET N-1
-    📄 Documentation/QUICK_START_TEST_ETATS_CONTROLE_N_N1.txt
-    🔧 Scripts/test-etats-controle-n-n1.ps1
+2️⃣  VISUALISER LES ÉTATS DE CONTRÔLE
+    📄 Scripts/test_etats_controle_html.html
+    📄 Documentation/00_FICHIER_HTML_TEST_ETATS_CONTROLE_04_AVRIL_2026.txt
+    📄 Scripts/README_TEST_ETATS_CONTROLE.md
 
 3️⃣  CONSULTER LES GUIDES
     📄 Documentation/GUIDE_UTILISATEUR_ETATS_LIASSE.md
@@ -217,5 +218,29 @@ Architecture:
 
 ✅ Documentation organisée et prête à l'emploi
 🎯 Commencez par lire 00_INDEX_COMPLET_V2.md
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  🆕 NOUVEAU - TEST ÉTATS DE CONTRÔLE N ET N-1 (04 AVRIL 2026)
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Script de test automatisé créé et validé
+✅ Génération de rapport HTML sur le bureau
+✅ Test réussi avec 1284 comptes analysés
+
+LANCER LE TEST:
+    ..\test-etats-controle-n-n1-html.ps1
+
+DOCUMENTATION:
+    📄 QUICK_START_TEST_ETATS_CONTROLE_N_N1.txt
+    📄 00_TEST_ETATS_CONTROLE_N_N1_CREE_04_AVRIL_2026.txt
+    📄 ../README_TEST_ETATS_CONTROLE_N_N1.md
+
+RÉSULTATS:
+    • 6 états de contrôle générés
+    • Rapport HTML professionnel
+    • Validé le 04 Avril 2026
 
 ═══════════════════════════════════════════════════════════════════════════════
