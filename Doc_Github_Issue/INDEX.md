@@ -28,6 +28,19 @@
    - Configurations recommandées
    - Scripts utiles
 
+5. **[SCRIPTS_UTILES.md](SCRIPTS_UTILES.md)** - Scripts PowerShell et Bash (NOUVEAU)
+   - Push commits multiples
+   - Diagnostic complet
+   - Vérification avant push
+   - Configuration automatique
+
+6. **[CONSEILS_PRATIQUES.md](CONSEILS_PRATIQUES.md)** - Guide pratique complet (NOUVEAU)
+   - Avant de commencer
+   - Pendant le push
+   - En cas de problème
+   - Bonnes pratiques
+   - Erreurs à éviter
+
 ---
 
 ## 📚 Par Sujet
@@ -35,19 +48,27 @@
 ### Diagnostic
 - [PROBLEMES_RENCONTRES.md](PROBLEMES_RENCONTRES.md) - Analyse des erreurs
 - [README.md](README.md#problèmes-rencontrés) - Résumé des problèmes
+- [SCRIPTS_UTILES.md](SCRIPTS_UTILES.md#scripts-de-diagnostic) - Scripts de diagnostic
 
 ### Solutions
 - [SOLUTIONS_DETAILLEES.md](SOLUTIONS_DETAILLEES.md) - Toutes les solutions
 - [README.md](README.md#solutions-trouvées) - Solutions principales
 - [COMMANDES_REFERENCE.md](COMMANDES_REFERENCE.md) - Commandes rapides
+- [SCRIPTS_UTILES.md](SCRIPTS_UTILES.md) - Scripts automatisés
 
 ### Configuration
 - [SOLUTIONS_DETAILLEES.md](SOLUTIONS_DETAILLEES.md#configuration-optimale-finale) - Configurations recommandées
 - [COMMANDES_REFERENCE.md](COMMANDES_REFERENCE.md#configurations) - Paramètres Git
+- [SCRIPTS_UTILES.md](SCRIPTS_UTILES.md#scripts-de-configuration) - Scripts de config
 
 ### Prévention
 - [README.md](README.md#recommandations) - Bonnes pratiques
 - [SOLUTIONS_DETAILLEES.md](SOLUTIONS_DETAILLEES.md#conseils-pratiques) - Conseils
+- [CONSEILS_PRATIQUES.md](CONSEILS_PRATIQUES.md) - Guide complet des bonnes pratiques
+
+### Automatisation
+- [SCRIPTS_UTILES.md](SCRIPTS_UTILES.md) - Tous les scripts PowerShell et Bash
+- [CONSEILS_PRATIQUES.md](CONSEILS_PRATIQUES.md#checklist-complète) - Checklist automatisable
 
 ---
 
