@@ -203,12 +203,15 @@ def remplir_liasse_officielle(results: Dict[str, Any], nom_entreprise: str, exer
     logger.info("📊 Début du remplissage de la liasse officielle")
     
     # Chemin du template (fichier vierge)
-    template_path = "LIASSE.xlsx"
+    # PRIORITÉ: Utiliser Liasse_officielle_revise.xlsx (84 onglets SYSCOHADA Révisé)
+    template_path = "Liasse_officielle_revise.xlsx"
     if not os.path.exists(template_path):
-        # Essayer avec l'autre nom
-        template_path = "Liasse officielle.xlsm"
+        # Fallback vers anciens templates
+        template_path = "LIASSE.xlsx"
         if not os.path.exists(template_path):
-            raise FileNotFoundError("Fichier template de liasse non trouvé")
+            template_path = "Liasse officielle.xlsm"
+            if not os.path.exists(template_path):
+                raise FileNotFoundError("Fichier template de liasse non trouvé (Liasse_officielle_revise.xlsx, LIASSE.xlsx ou Liasse officielle.xlsm)")
     
     logger.info(f"📂 Template trouvé: {template_path}")
     
