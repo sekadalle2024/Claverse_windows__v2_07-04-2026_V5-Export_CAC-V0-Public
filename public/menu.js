@@ -7739,17 +7739,26 @@
       container.className = 'etats-financiers-results';
       container.style.cssText = 'margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px; border: 2px solid #dee2e6;';
 
-      // Titre principal
-      const title = document.createElement('h2');
-      title.innerHTML = '📈 <strong>États Financiers SYSCOHADA Révisé</strong>';
-      title.style.cssText = 'margin: 0 0 20px 0; color: #2c3e50; font-size: 20px; text-align: center; padding-bottom: 10px; border-bottom: 2px solid #3498db;';
-      container.appendChild(title);
+      // Si le backend a généré un HTML complet, l'utiliser directement
+      if (result.html) {
+        console.log("✅ [États Financiers] Utilisation du HTML généré par le backend");
+        container.innerHTML = result.html;
+      } else {
+        // Fallback: construire le HTML manuellement (ancien comportement)
+        console.log("⚠️ [États Financiers] Pas de HTML backend, construction manuelle");
+        
+        // Titre principal
+        const title = document.createElement('h2');
+        title.innerHTML = '📈 <strong>États Financiers SYSCOHADA Révisé</strong>';
+        title.style.cssText = 'margin: 0 0 20px 0; color: #2c3e50; font-size: 20px; text-align: center; padding-bottom: 10px; border-bottom: 2px solid #3498db;';
+        container.appendChild(title);
 
-      // Créer les accordéons
-      const accordionsHTML = this.buildEtatsFinanciersAccordions(result);
-      const accordionsDiv = document.createElement('div');
-      accordionsDiv.innerHTML = accordionsHTML;
-      container.appendChild(accordionsDiv);
+        // Créer les accordéons
+        const accordionsHTML = this.buildEtatsFinanciersAccordions(result);
+        const accordionsDiv = document.createElement('div');
+        accordionsDiv.innerHTML = accordionsHTML;
+        container.appendChild(accordionsDiv);
+      }
 
       // Insérer après la table ou à la fin du chat
       if (this.targetTable && this.targetTable.parentNode) {
@@ -7760,7 +7769,7 @@
         else document.body.appendChild(container);
       }
 
-      // Activer les accordéons
+      // Activer les accordéons (fonctionne pour les deux formats)
       this.setupEtatsFinanciersAccordions(container);
       console.log("✅ [États Financiers] Résultats affichés");
     }
@@ -7916,6 +7925,7 @@
      * Active les accordéons des États Financiers
      */
     setupEtatsFinanciersAccordions(container) {
+      // Gérer les accordéons du format frontend (ancien)
       container.querySelectorAll('.ef-accordion-header').forEach(header => {
         header.addEventListener('click', () => {
           const content = header.nextElementSibling;
@@ -7931,6 +7941,27 @@
           }
         });
       });
+
+      // Gérer les accordéons du format backend (nouveau - avec BRUT, AMORT, NET)
+      container.querySelectorAll('.section-header-ef').forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          const arrow = header.querySelector('.arrow');
+          const isOpen = header.classList.contains('active');
+
+          if (isOpen) {
+            header.classList.remove('active');
+            content.classList.remove('active');
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+          } else {
+            header.classList.add('active');
+            content.classList.add('active');
+            if (arrow) arrow.style.transform = 'rotate(90deg)';
+          }
+        });
+      });
+
+      console.log("✅ [États Financiers] Accordéons activés (formats frontend et backend)");
     }
 
     // ============================================

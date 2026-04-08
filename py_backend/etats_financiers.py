@@ -17,6 +17,9 @@ from tableau_flux_tresorerie import calculer_tft
 from annexes_liasse import calculer_annexes
 from annexes_html import generate_annexes_html
 
+# Import du module ACTIF BRUT/AMORT
+from calculer_actif_brut_amort import enrichir_actif_avec_brut_amort
+
 # Configuration du logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("etats_financiers")
@@ -440,6 +443,10 @@ def process_balance_to_etats_financiers(balance_df: pd.DataFrame, correspondance
     logger.info(f"   - Taux de couverture: {controles['statistiques']['taux_couverture']:.1f}%")
     logger.info(f"   - Comptes sens anormal: {len(comptes_sens_anormal)}")
     
+    # Enrichir l'actif avec colonnes BRUT, AMORT ET DEPREC, NET
+    logger.info("📊 Enrichissement ACTIF avec colonnes BRUT, AMORT, NET...")
+    actif_enrichi = enrichir_actif_avec_brut_amort(balance_df, correspondances, col_map)
+    
     return {
         'bilan_actif': results['bilan_actif'],
         'bilan_passif': results['bilan_passif'],
@@ -452,7 +459,9 @@ def process_balance_to_etats_financiers(balance_df: pd.DataFrame, correspondance
             'produits': total_produits,
             'resultat_net': resultat_net_cr
         },
-        'controles': controles
+        'controles': controles,
+        'actif_detaille': actif_enrichi['actif_detaille'],
+        'actif_html': actif_enrichi['html']
     }
 
 
@@ -688,13 +697,19 @@ def generate_etats_financiers_html(results: Dict[str, Any]) -> str:
     """
     
     # 1. BILAN
-    # Bilan Actif
-    html += generate_section_html(
-        "bilan_actif",
-        "🏢 BILAN - ACTIF",
-        results['bilan_actif'],
-        totaux['actif']
-    )
+    # Bilan Actif - Version enrichie avec BRUT, AMORT ET DEPREC, NET
+    if 'actif_html' in results and results['actif_html']:
+        logger.info("📊 Utilisation du HTML ACTIF enrichi (BRUT, AMORT, NET)")
+        html += results['actif_html']
+    else:
+        # Fallback vers la version standard si l'enrichissement n'est pas disponible
+        logger.warning("⚠️ HTML ACTIF enrichi non disponible, utilisation de la version standard")
+        html += generate_section_html(
+            "bilan_actif",
+            "🏢 BILAN - ACTIF",
+            results['bilan_actif'],
+            totaux['actif']
+        )
     
     # Bilan Passif
     html += generate_section_html(
